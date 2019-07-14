@@ -1,0 +1,20 @@
+mixin radio(data)
+    -data = data || {}
+    -name = data.name || name
+    -className = data.className
+    -tabIndex = data.tabIndex || '0'
+    -required = data.required || false
+    -checked = data.checked || false
+    -label =data.label
+
+    +b.LABEL.radio()&attributes(attributes)
+        +e.INPUT.input(
+            type="radio"
+            class=className
+            name=name
+            tabindex=tabIndex
+            required=required
+            checked=checked)
+        +e.SPAN.custom
+        +e.SPAN.label!=label
+            block

@@ -1,0 +1,33 @@
+.page__header {
+	background-color: $accent_color;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+
+	&__logo {
+		a {
+			color: white;
+		}
+	}
+}
+
+.list {
+	display: flex;
+	margin-left: auto;
+
+	@include below(map-get($breaks, mobile)) {
+        display: none;
+    }
+
+	&__item {
+		margin-left: 20px;
+	}
+
+	&__link {
+		color: white;
+	}
+
+}

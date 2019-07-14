@@ -1,0 +1,86 @@
+.example-block {
+	padding-bottom: 30px;
+	padding-top: 10px;
+
+	&__title {
+		margin-bottom: 30px;
+	}
+}
+
+.checker {
+	position: relative;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 30px;
+	min-height: 18px; // check min font size
+
+	span {
+		color: $red;
+	}
+
+	input {
+		width: inherit !important;
+		position: absolute;
+		opacity: 0;
+		left: 0;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	&__label {
+		position: relative;
+		line-height: 18px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&__checkbox {
+		top: 0;
+	}
+
+	&__box {
+		position: absolute;
+		padding-right: 1px;
+		left: -30px;
+		top: -3px;
+		width: 21px;
+		height: 21px;
+		border: 1px solid #E0E0E0;
+		background: white;
+
+		&:after {
+			background-image: url('../svg/galka.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 11px;
+			height: 16px;
+			position: absolute;
+			left: 4px;
+			top: 5px;
+			content: '';
+			display: block;
+			opacity: 0;
+		}
+	}
+
+	&__checkbox:checked + &__box {
+		&:after {
+			opacity: 1;
+		}
+	}
+
+}
+
+.js-content {
+	display: none;
+
+	&__block {
+		padding-top: 30px;
+	}
+}

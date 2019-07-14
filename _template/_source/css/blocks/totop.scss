@@ -1,0 +1,17 @@
+.totop {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 30px;
+	background-color: #2F3538;
+	color: white;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	svg {
+		transform: rotate(180deg);
+	}
+}

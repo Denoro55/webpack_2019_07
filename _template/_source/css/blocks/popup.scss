@@ -1,0 +1,106 @@
+.popup-wrapper {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(black,.9);
+	overflow-y: auto;
+	z-index: 50;
+	color: $metal_color;
+
+	@include below(map-get($breaks, tablet)) {
+       padding: 0 20px;
+    }
+
+	.popup {
+		margin: 60px auto;
+
+		@include below(map-get($breaks, mobile)) {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.popup {
+	position: relative;
+	text-align: center;
+	background: white;
+	padding: 40px 20px 50px 20px;
+	width: 580px;
+	max-width: 100%;
+	transition: all .5s;
+
+	@include below(map-get($breaks, tablet)) {
+		padding-top: 60px;
+	}
+
+	&__form {
+		width: 320px;
+		margin: 0 auto;
+
+		.condition {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		right: 20px;
+		top: 17px;
+		width: 30px;
+		height: 30px;
+		
+		i {
+			font-size: 20px;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		@include below(map-get($breaks, mobile)) {
+			right: 0;
+			top: -45px;
+		}
+
+	}
+
+	&__title {
+		font-size: 26px;
+		margin-bottom: 30px;
+
+		@include below(map-get($breaks, tablet)) {
+			font-size: 24px;
+		}
+
+		@include below(map-get($breaks, mobile)) {
+			font-size: 20px;
+		}
+	}
+
+	&__subtitle {
+		line-height: 24px;
+		margin-bottom: 30px;
+	}
+}
+
+.popup-anim {
+	animation-name: popup;
+	animation-duration: .7s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes popup{
+	0% {
+		background: white;
+		transform: translateY(-50%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}

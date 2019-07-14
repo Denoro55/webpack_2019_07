@@ -1,0 +1,22 @@
+mixin header(data)
+
+	+b.HEADER.page__header
+		+e.container.container
+			+b.header
+				+e.logo
+					+e.A(href=ju) Logo
+				+b.list
+					+e.item
+						+e.A.link(href="#") Home
+					+e.item
+						+e.A.link(href="#") About
+					+e.item
+						+e.A.link.js-nav-link(data-target="#map" href="#") Карта
+
+				+b.hamburger.js-slide-menu
+					+e.block
+						+e.line._1
+						+e.line._2
+						+e.line._3
+
+			block

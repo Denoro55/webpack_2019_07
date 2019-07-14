@@ -1,0 +1,35 @@
+.star-selector {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	font-size: 14px;
+
+	@include below(map-get($breaks, mobile_xs)) {
+		padding-right: 0;
+	}
+
+	&__right {
+		display: flex;
+		margin-left: auto;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		margin-left: 5px;
+		color: #BFBFBF;
+
+		&_active {
+			color: $red_color;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		svg {
+			width: 15px;
+			height: 15px;
+		}
+	}
+}

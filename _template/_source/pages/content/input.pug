@@ -1,0 +1,27 @@
+mixin input(data)
+    -data = data || {}
+    -tag = data.tag || 'input'
+    -id = data.id || false
+    -className = data.className
+    -name = data.name
+    -type = data.type || 'text'
+    -minlength = data.minlength || false
+    -placeholder = data.placeholder || false
+    -required = data.required || false
+    -pattern = data.pattern || false
+    -tabIndex = data.tabIndex || false
+    -readonly = data.readonly || false
+
+    +b(tag).input(
+        id=id
+        class=className
+        name=name || 'text'
+        type=type || 'text'
+        minlength=minlength
+        placeholder=placeholder
+        required=required
+        pattern!=pattern
+        tabindex=tabIndex || '0'
+        readonly=readonly)&attributes(attributes)
+
+        block

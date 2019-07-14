@@ -1,0 +1,76 @@
+.invalid-input {
+	$invalid_color: #BA0E0D;
+
+	// color: $invalid_color !important;
+
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $invalid_color !important;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $invalid_color !important;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $invalid_color !important;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $invalid_color !important;
+    }
+
+    border-color: $invalid_color !important;
+}
+
+label.invalid-input {
+    color: $red_color;
+    a {
+        color: $red_color;
+    }
+
+    .checker__box {
+        border-color: $red_color;
+    }
+}
+
+label.file.invalid-input {
+    .file__text {
+        color: $red_color;
+        text-decoration: underline;
+    }
+
+    .file__image {
+        border-color: $red_color;
+    }
+}
+
+.form-invalid {
+	.popup-form__result {
+		display: block !important;
+	}
+}
+
+// .invalid-condition {
+// 	color: $red_color;
+//     a {
+//         color: $red_color;
+//     }
+
+//     .condition__checker {
+//         border-color: $red_color;
+//     }
+// }
+
+.js-file-image-active {
+    * {
+        display: none;
+    }
+}
+
+// .invalid-file {
+//     .file__text {
+//         color: $red_color;
+//         text-decoration: underline;
+//     }
+
+//     .file__image {
+//         border-color: $red_color;
+//     }
+// }

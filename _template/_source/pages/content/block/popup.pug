@@ -1,0 +1,75 @@
+mixin popup(id)
+	+b.popup-wrapper(id=`popup${id}`)
+		+b.popup
+			+e.content
+				+e.H3.title.title Заказать обратный звонок
+				+b.FORM(action="/").form.popup__form.js-validate.js-file-parent
+
+					+e.field.required
+						+b.form-field
+							+b.LABEL.label-style
+								+e.SPAN.hint Имя
+								+input({name:"name"}).input-style
+
+					+e.field._phone.required
+						+b.form-field
+							+b.LABEL.label-style
+								+e.SPAN.hint Телефон
+								+input({name:"phone", type:"tel"}).js-phone-mask.input-style
+
+					+e.field._phone.required
+						+b.form-field
+							+b.LABEL.label-style
+								+e.SPAN.hint E-mail
+								+input({name:"email"}).input-style.js-valid_email
+
+					+e.field.required
+						+b.form-field
+							+b.LABEL.label-style
+								+e.SPAN.hint Дата
+								+input({name:"date"})(autocomplete="off").input-style#datepicker
+
+					+e.field._star
+						+b.star-selector
+							+e.left Ваша оценка:
+							+e.right.js-setstar
+								+e.item._active.js-set-star
+									+icon('star')
+								each i in [1,2,3,4]
+									+e.item.js-set-star
+										+icon('star')
+								input.setstar-input(name="stars" type="hidden" value="1")
+
+					+e.field
+						+b.LABEL.file._result
+							+b.INPUT(name="file" type='file' data-max-size="1000000" accept="image/*" tabindex="0").input.fileload
+							+e.left
+								+e.image.js-file-image
+									+b(src="img/download.svg" alt="")
+							+e.right
+								+e.title Перетащите сюда фотографию чека или кликните по кнопке, чтобы загрузить фотографию.
+								+e.text Максимальный вес файла должен быть не более 5мб.
+
+					+e.field
+						+b.checker
+							+e.LABEL.label.required Я согласен на обработку <span class="js-call-popup" data-target="popup-personal">персональных данных</span>
+								+input({type:"checkbox",name:'checkbox'}).checker__checkbox
+								+e.SPAN.box
+
+					+e.field._flex
+						+b.checker
+							+e.LABEL.label.required Вариант 1
+								+input({type:"radio",name: 'radio'}).checker__checkbox
+								+e.SPAN.box
+						+b.checker
+							+e.LABEL.label.required Вариант 2
+								+input({type:"radio",name: 'radio'}).checker__checkbox
+								+e.SPAN.box
+
+					+e.bottom
+						+e.BUTTON.button.button(type="submit") Отправить
+
+					+e.result.js-form-result
+
+			.popup__close.js-popup-close
+				img(src="svg/close.svg" alt="")

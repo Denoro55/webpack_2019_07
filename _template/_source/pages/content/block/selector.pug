@@ -1,0 +1,18 @@
+mixin selector(data)
+	-required = data.required || false
+	-initial = data.initial || false
+	+b.selector(class=data.class)&attributes(attributes)
+		- var vv = data.options
+		select(required=required)
+			each i, num in vv
+				option(value=((num==0 && !initial)?'':`${i}`))= i
+		+e.name
+			+e.block
+				+e.value.js-selector-value= vv[0]
+			+e.icon
+				+e.arrow
+					+icon('selector-arrow')
+				
+		+e.UL.list
+			each i in vv
+				+e.LI.item(data-value=`${i}`)= i

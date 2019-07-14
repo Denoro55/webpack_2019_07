@@ -1,0 +1,21 @@
+mixin slider(filter)
+
+	+b.slider-wrapper(class=(filter)?'slider-filter':null)
+
+		if (filter)
+
+			.js-owl-input.js-filters-block
+				input.js-filter-input.input-city2(type="hidden" value="Москва" data-type="city")
+				input.js-filter-input(type="hidden" data-type="status" value="Welcome")
+
+			+b.owl-slider.fake-slider
+				each i,index in [1,2,3,4,5,6]
+					+e.block.js-block-filter(data-status=((index<4)?`Welcome`:'Bronze') data-city="Москва")
+						+e.title Заголовок #{i}
+						+e.text Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Образ он жаренные грамматики коварных lorem, журчит, раз снова рыбными! Заглавных текст текстов, lorem мир. Встретил коварных даль великий однажды.
+
+		+b.owl-slider.owl-carousel.slider-element.js-owl-slider
+			each i in [1,2,3,4,5,6]
+				+e.block
+					+e.title Заголовок
+					+e.text Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Образ он жаренные грамматики коварных lorem, журчит, раз снова рыбными! Заглавных текст текстов, lorem мир. Встретил коварных даль великий однажды.

@@ -1,0 +1,61 @@
+include ../../../../../node_modules/bemto.pug/bemto
+
+include head
+include ifie
+include noscript
+
+include ../content/header
+include ../content/footer
+include ../content/btn
+include ../content/icon
+
+include ../content/checkbox
+
+include ../content/radio
+include ../content/form
+
+include ../content/input
+include ../content/modal
+
+include ../content/block/popup
+include ../content/block/selector
+include ../content/block/owl-slider
+
+block vars
+
+doctype html
+- ju = 'javascript:undefined';
+
+html(lang='ru' class='no-js')
+
+    head
+        +head()
+
+    body.page
+
+        +ifie()
+
+        +noscript()
+
+        +header
+
+        main.page__wrapper
+            block content
+
+        +footer
+
+        script(src="module/jquery.min.js")
+            
+        script.
+            window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous"><\/script>')
+
+        script(src="module/jquery.mask.js")
+        script(src="module/polyfill.js")
+
+        script(src="module/owl.carousel.min.js")
+        script(src="module/jquery-ui.min.js")
+        script(src="module/slick.min.js")
+        script(src="https://api-maps.yandex.ru/2.1/?&lang=ru_RU")
+        script(src="https://unpkg.com/simplebar@latest/dist/simplebar.js")
+            
+        script(src="js/main.js")

@@ -1,0 +1,13 @@
+.browserupgrade {
+    & ~ .page__header {
+        display: none;
+    }
+
+    & ~ .page__wrapper {
+        display: none;
+    }
+
+    & ~ .page__footer {
+        display: none;
+    }
+}

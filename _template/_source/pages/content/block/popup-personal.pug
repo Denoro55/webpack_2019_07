@@ -1,0 +1,13 @@
++b.popup-wrapper(id=`popup-personal`)
+	+b.popup
+		+e.content
+			+e.H3.title.title Персональные данные
+			+b.FORM(action="/").form.popup__form
+				+e.field
+					+b.checker
+						+e.LABEL.label Я согласен на обработку персональных данных
+							+e.INPUT.checkbox(type="checkbox" tabindex="0")
+							+e.SPAN.box
+							
+		.popup__close.js-popup-close
+			img(src="svg/close.svg" alt="")

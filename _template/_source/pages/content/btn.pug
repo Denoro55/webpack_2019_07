@@ -1,0 +1,14 @@
+mixin btn(data)
+    -data = data || {}
+    -tag = data.tag || 'a'
+    -className = data.className
+    -type = data.type || false
+    -href = data.href || ju
+    -text = data.text || text
+
+
+    +b(tag).btn(
+        href=(tag === 'a' ? href : false)
+        class=className
+        type=type)
+        block

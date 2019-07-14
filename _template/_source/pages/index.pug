@@ -1,0 +1,139 @@
+extends ./system/layout.pug
+
+block vars
+	- title = 'Шаблон'
+
+block content
+
+	+popup(1)
+
+	include ./content/block/popup-personal.pug
+
+	+b.mobile-menu.js-menu
+		+e.item
+			+b.SPAN.js-nav-link.js-close-menu(data-target='.section-cars') Новые автомобили
+		+e.item
+			+b.SPAN.js-nav-link.js-close-menu(data-target=".icon_phone") Схема проезда
+		+e.item
+			+b.A(href="tel:+74957807790" class="contact__text") +7 495 780-77-90
+
+	+b.SECTION.section
+
+		.container
+
+			.example-block
+				+b.js-call-popup.button(data-target="popup1") Вызвать окно
+
+			+b.example-block
+
+				+e.H3.title Скроллбар
+
+				+b.own-scroll(data-simplebar data-simplebar-auto-hide="false") Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero voluptates pariatur tempora, consequatur repellat cupiditate voluptatibus, molestiae, voluptate quod sint non nulla tenetur quas labore ut minima ipsum harum eaque.
+
+			+b.example-block
+
+				+e.H3.title Аккордион
+
+				+b.questions
+					+e.UL.list
+						each i in [{title: '1. Кто является организатором Акции?',text: 'Организатором акции является ООО «Дайверсити».'},{title: '2. Кто может принять участие в Акции?',text: 'В акции могут принять участие дееспособные, совершеннолетние граждане Российской Федерации, постоянно проживающие на территории Российской Федерации, имеющие мобильный телефон и адрес электронной почты.'}]
+							+e.LI.item.js-accordion-item
+								+e.head
+									+e.nav.js-slide-accordion= i.title
+								+e.content.js-accordion-content
+									+e.P.text !{i.text}
+
+			+b.example-block
+
+				+e.H3.title Неактивная кнопка в форме
+
+				+b.FORM(action="/").js-search-access
+					+b.DIV.required
+						+input({placeholder: 'Введите почту или имя', name: 'search'}).js-target
+					+b.button(type="submit").js-search-button Поиск
+
+			+b.example-block
+
+				+e.H3.title Табы
+
+				+b.tab-menu(data-toggle="#tab-changer")
+					+e.item._active Общие
+					+e.item(data-item="1")  Приватность
+					+e.item Другое
+
+				+b.tabber#tab-changer
+					+e.item._active Первый таб
+					+e.item Второй таб
+					+e.item Третий таб
+
+			+b.example-block
+
+				+e.H3.title Селектор
+
+				+selector({class: 'selector_designed selector_remote','options':['Город','Москва','Санкт-Петербург'],initial: true})(data-target=".input-city2")
+
+			+b.example-block
+
+				+e.H3.title Slick Слайдер
+
+				include ./content/block/slick-slider.pug
+
+			//- +b.example-block
+
+			//- 	+e.H3.title Слайдер
+
+			//- 	include ./content/block/owl-slider.pug
+
+			//- +b.example-block
+
+			//- 	+e.H3.title Слайдер с фильтром
+
+			//- 	+slider(true)
+
+			+b.example-block
+
+				+e.H3.title Toggler
+
+				+b.arrower.js-slide-toggle
+					+e.block
+						+e.text Условия акции
+						+e.icon
+							+icon('selector-arrow')
+
+				+b.js-content
+					+e.block
+						| <strong><sup><small>1</small></sup> Выгода 187&nbsp;400&nbsp;₽</strong> достигается при покупке автомобиля OCTAVIA Ambition с&nbsp;пакетом WE8 2019 года выпуска, при условии сдачи своего автомобиля по&nbsp;системе трейд-ин (приобретение автомобиля с&nbsp;принятием в&nbsp;зачет стоимости прежнего автомобиля). Срок предложения с&nbsp;1&nbsp;по&nbsp;30&nbsp;июня 2019&nbsp;года. Количество автомобилей ограничено.
+
+			+b.example-block
+
+				+e.H3.title Totop
+
+				+b.totop.js-scroll-top
+					+icon('selector-arrow')
+
+			+b.example-block
+
+				+e.H3.title Ссылки
+
+				+b.A(href="").arrower.js-slide-toggle
+					+e.block
+						+e.text Заказать звонок
+						+e.icon
+							+icon('arrow')
+	+b.section-map
+		+b.map-container
+			+e.container.container
+				+b.map-info.section-map__map-info
+					+e.P.title <span>Ауди</span> Запад
+					+e.block
+						+e.subtitle Адрес:
+						+e.text г. Москва, 51-й км МКАД, д. 10
+					+e.block
+						+e.subtitle Телефон:
+						+e.text
+							+e.A(href="tel:+74955257575") +7 (495) 525-75-75
+					+e.block
+						+e.subtitle Режим работы:
+						+e.text Ежедневно с 9:00 до 21:00
+
+		+b#map(style="width: 100%;")

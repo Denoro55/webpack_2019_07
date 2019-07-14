@@ -1,0 +1,40 @@
+.own-scroll {
+	max-height: 100px;
+	overflow: auto;
+	width: 300px;
+	padding-right: 20px;
+}
+
+.simplebar-track.simplebar-vertical, .simplebar-scrollbar {
+	width: 13px !important;
+	// height: 30px !important;
+}
+
+.simplebar-scrollbar:before {
+	width: 13px;
+	opacity: 1 !important;
+}
+
+.simplebar-scrollbar {
+	right: 0px !important;
+}
+
+.simplebar-track {
+	background-color: #F2F2F2;
+	border-radius: 6px;
+}
+
+.simplebar-track.simplebar-vertical {
+	// bottom: 30px !important;
+}
+
+.simplebar-hide-mobile {
+	@include below(map-get($breaks, mobile)) {
+		.simplebar-mask, .simplebar-offset {
+			position: inherit !important;
+		}
+		.simplebar-placeholder {
+			display: none  !important;
+		}
+	}
+}

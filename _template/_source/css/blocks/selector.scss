@@ -1,0 +1,162 @@
+$main: blue;
+$darko: #ddd;
+$red_color: red;
+$selector_color: blue;
+
+.selector {
+	position: relative;
+	padding: 0 20px;
+	height: 50px;
+	font-size: 16px;
+	color: $accent_color;
+	line-height: 1.42857143;
+	display: flex;
+	background-color: $selector_color;
+	color: white;
+	// border: 1px solid $dark_color;
+
+	&_changed {
+		.selector__arrow {
+			background: url('../svg/select-arrow-galka.svg') !important;
+		    background-position: center center !important;
+		    background-repeat: no-repeat !important;
+
+		    svg {
+		    	display: none;
+		    }
+		}
+	}
+
+	&_disabled {
+		color: #BDBDBD;
+
+		select {
+			display: none !important;
+		}
+
+		.selector__arrow {
+			// background: url('../svg/select-arrow-disabled.svg') !important;
+		 //    background-position: center center !important;
+		 //    background-repeat: no-repeat !important;
+		}
+	}
+
+	&_2 {
+		height: 60px;
+		background-color: #fff;
+
+		.selector__block {
+			position: relative;
+			border-bottom: 3px solid $red_color;
+		}
+
+		.selector__value {
+			font-weight: 500;
+		}
+	}
+
+	&_red {
+		.selector__value, .selector__icon {
+			color: $red_color;
+		}
+	}
+
+	&:hover{
+		cursor: pointer;
+	}
+
+	&__list {
+		display: none;
+		border: 1px solid #ddd;
+		position: absolute;
+		left: -1px;
+		right: -1px;
+		min-width: 130px;
+		max-height: 240px;
+		overflow-y: auto;
+		top: 100%;
+		background: white;
+		z-index: 510;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		color: black;
+	}
+
+	.selector__list-scroll {
+		overflow-y: scroll;
+		max-height: 220px;
+		background: white;
+	}
+
+	&__item {
+		min-height: 34px;
+   		padding: 10px 10px 10px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		width: 100%;
+
+		&:hover {
+			background: $main;
+			color: white;
+		}
+	}
+
+	&__name {
+		display: flex;
+		width: 100%;
+	}
+
+	&__block {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		margin-right: 7px;
+	}
+
+	&__value {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+	}
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		width: 12px;
+	    height: 12px;
+	    border: 0;
+	}
+
+	select {
+		// display: none;
+
+		display: block;
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -15;
+
+		@include below(map-get($breaks, mobile)) {
+	        z-index: 15;
+	    }
+	}
+}
+
+.selector_required:not(.selector_changed) {
+	.selector__value {
+		&:after {
+			content: '*';
+			display: inline-block;
+			color: $red_color;
+		}
+	}
+}

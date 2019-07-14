@@ -1,0 +1,49 @@
+//===Typo==========================
+$fontbaseSize: 16px !default;
+$baseLineHeight: 1.428571429;
+$baseFont: Arial, sans-serif;
+$accent_font: 'MMC', $baseFont;
+$second_font: 'VolvoBroadPro', $baseFont;
+//=================================
+
+
+//===Colors========================
+$danger: red;
+$white: #ffffff;
+$red: #E41117;
+$black: #000000;
+$accent_color: #333132;
+$second_color: #2B7BCD;
+$advant_icon: #18335C;
+$offer_bg: #FAFAFA;
+$contact_item_title: #9A9B9D;
+$button_color: #E41117;
+$metal_color: #212529;
+//=================================
+
+
+//===Container=====================
+$container: (
+    desktop: 1920px,
+    laptop: 1366px,
+    tablet: 1024px,
+    mobile: 768px
+);
+
+$containerMaxWidth: 1200px;
+$max-width: 1920px;
+//=================================
+
+//===Breaks========================
+$breaks: (
+    desktop: 1920px,
+    laptop: 1200px,
+    tablet: 1023px,
+    mobile: 767px,
+    mobile_md: 576px,
+    mobile_sm: 480px,
+    mobile_xs: 375px
+);
+
+//===Transition=====================
+$transition: cubic-bezier(0.75, 0.02, 0.5, 1);

@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $fontbaseSize;
+
+    // @include below(map-get($breaks, tablet)) {
+    //     font-size: 0.833333333vw;
+    // }
+}
+
+html,
+body {
+    width: 100%;
+    // height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: $accent_font;
+    font-weight: 400;
+    line-height: $baseLineHeight;
+    color: $accent_color;
+    background-color: $white;
+}
+
+
+.page {
+    position: relative;
+    max-width: $max-width;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page__wrapper {
+    overflow: hidden;
+}
+
+.container {
+    max-width: $containerMaxWidth;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include below(map-get($breaks, laptop)) {
+       width: 990px;
+    }
+
+    @include below(map-get($breaks, tablet)) {
+       width: 768px;
+    }
+
+    @include below(map-get($breaks, mobile)) {
+       width: 100%;
+       padding: 0 15px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a,
+button {
+    text-decoration: none;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+input,
+select,
+textarea {
+    outline: none;
+}

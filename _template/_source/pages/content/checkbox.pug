@@ -1,0 +1,20 @@
+mixin checkbox(data)
+    -data = data || {}
+    -name = data.name || 'checkbox'
+    -className = data.className
+    -tabIndex = data.tabIndex || '0'
+    -required = data.required || undefined
+    -checked = data.checked || undefined
+    -checkLabel = data.label || undefined
+
+    +b.LABEL.checkbox()&attributes(attributes)
+        +e.INPUT.input(
+            type="checkbox"
+            class=className
+            name=name
+            tabindex=tabIndex
+            required=required
+            checked=checked)
+        +e.SPAN.custom
+        +e.SPAN.label=checkLabel
+            block

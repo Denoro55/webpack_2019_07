@@ -1,0 +1,83 @@
+// file
+
+.file {
+	display: flex;
+	font-size: 14px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	span {
+		display: block;
+	}
+
+	input {
+		display: none;
+	}
+
+	&__left {
+		flex-shrink: 0;
+		margin-right: 15px;
+	}
+
+	&__right {
+		flex: 1 1 auto;
+	}
+
+	&__image {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		background: #FFFFFF;
+		border: 2px solid #E0E0E0;
+		border-radius: 15px;
+		background-size: cover !important;
+		background-position: center center !important;
+	}
+
+	&__title {
+		line-height: 17px;
+		margin-bottom: 10px;
+		letter-spacing: 0.05em;
+	}
+
+	&__text {
+		font-size: 12px;
+		line-height: 14px;
+		letter-spacing: 0.05em;
+		margin-bottom: 10px;
+	}
+
+}
+
+// files
+
+.js-file-parent {
+	&_success {
+		.file-failure {
+			display: none;
+		}
+
+		.file-success {
+			display: block;
+		}
+	}
+}
+
+.file-success {
+	display: none;
+
+	&__block {
+		display: flex;
+		margin-left: -20px;
+	}
+
+	&__button {
+		width: 180px;
+		margin-left: 20px;
+	}
+}
+

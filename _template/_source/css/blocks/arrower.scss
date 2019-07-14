@@ -1,0 +1,36 @@
+.arrower {
+	$arrow_color: #4BA82E;
+
+	display: inline-block;
+
+	&__block {
+		display: flex;
+		color: $arrow_color;
+	}
+
+	&_active {
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		padding-left: 9px;
+		padding-top: 4px;
+		color: $arrow_color;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	img {
+		width: 9px;
+	}
+
+	&__text {
+		text-decoration: underline;
+	}
+}

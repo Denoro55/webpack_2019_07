@@ -1,0 +1,164 @@
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin placeholder($color,$fz) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $color;
+        font-size: $fz;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $color;
+        font-size: $fz;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $color;
+        font-size: $fz;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $color;
+        font-size: $fz;
+    }
+}
+
+@mixin decorate-line($color,$height) {
+    position: relative;
+    
+    &:after {
+        content: '';
+        display: block;
+        height: $height;
+        background-color: $color;
+        position: absolute;
+        right: 0;
+        left: 0;
+    }
+}
+
+@mixin transition {
+    transition: all .25s $transition;
+}
+
+@mixin font($ff, $size, $lineHeight, $color) {
+    font-family: $ff;
+    font-size: $size;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+@mixin center() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    margin: auto;
+}
+
+@mixin nl {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    list-style: none;
+    list-style-position: outside;
+}
+
+@mixin cf {
+
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .lt-ie8 & {
+        zoom: 1;
+    }
+}
+
+@mixin blocks-justify {
+    text-align: justify;
+    text-justify: newspaper;
+}
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: (eot: "?",
+        svg: "#"+ str-replace($name, " ", "_"));
+
+    $formats: (otf: "opentype",
+        ttf: "truetype"
+        );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@function breakpoint-em($val) {
+    $res: $val / $fontbaseSize * 1em;
+    @return $res;
+}
+
+@mixin above($width) {
+    @media screen and (min-width: breakpoint-em($width)) {
+        @content;
+    }
+}
+
+@mixin below($width) {
+    @media screen and (max-width: breakpoint-em($width)) {
+        @content;
+    }
+}
+
+@mixin aboveLandscape ($width, $orientation: 'width') {
+    @media screen and (min-#{$orientation}: breakpoint-em($width)) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin belowLandscape($width, $orientation: 'width') {
+    @media screen and (max-#{$orientation}: breakpoint-em($width)) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin between($minWidth, $maxWidth) {
+    @media screen and (min-width: breakpoint-em($minWidth)) and (max-width: breakpoint-em($maxWidth)) {
+        @content;
+    }
+}
+
+@mixin dpr($minResolutionDpi: 144dpi, $minResolutionDpx: 1.5dppx) {
+    @media screen and (min-resolution: $minResolutionDpi), (min-resolution: $minResolutionDpx) {
+        @content
+    }
+}

@@ -1,0 +1,17 @@
+.tabber {
+	&__item {
+		position: absolute;
+		display: none;
+		left: 0;
+		top: 0;
+		left: -5000px;
+		opacity: 0;
+
+		&_active {
+			display: block;
+			left: 0;
+			opacity: 1;
+			position: inherit;
+		}
+	}
+}
